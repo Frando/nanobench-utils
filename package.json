@@ -1,0 +1,18 @@
+{
+  "name": "nanobench-utils",
+  "version": "0.1.0",
+  "description": "Utilities for benchmarks and timers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["benchmark", "nanobench", "timer"],
+  "author": "Franz Heinzmann (Frando)",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "browser-process-hrtime": "^1.0.0",
+    "nanobench": "^2.1.1",
+    "pretty-bytes": "^5.3.0",
+    "pretty-hrtime": "^1.0.3"
+  }
+}
