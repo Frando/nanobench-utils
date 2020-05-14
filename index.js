@@ -1,14 +1,14 @@
 const hrtime = require('browser-process-hrtime')
 const prettyBytes = require('pretty-bytes')
 const prettyTime = require('pretty-hrtime')
-const nanobench = require('nanobench')
+const debug = require('debug')('time')
 
 module.exports = {
   clock,
   prettyBytes,
   prettyTime,
   prettyThroughput,
-  hrtime,
+  hrtime
 }
 
 function clock (name) {
@@ -38,14 +38,14 @@ function clock (name) {
     last = hrtime()
     return msg
   }
+  elapsed.debug = function (message) {
+    debug(elapsed.log(message, true))
+  }
   return elapsed
 }
-
 
 function prettyThroughput (ns, bytes) {
   if (Array.isArray(ns)) ns = ns[0] * 1e9 + ns[1]
   const bytespers = prettyBytes(bytes / (ns / 1e9))
   return `${bytespers}/s`
 }
-
-function noop () {}

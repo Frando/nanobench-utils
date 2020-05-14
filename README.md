@@ -2,10 +2,15 @@
 
 Utility functions for timers and benchmarks. Works well with [nanobench](https://github.com/mafintosh/nanobench).
 
+```
+npm install nanobench-utils
+```
+
 ## API
 
+
 ``` 
-const { clock } = require('benchutils')
+const { clock } = require('nanobench-utils')
 ```
 
 ### const timer = clock([name])
@@ -16,7 +21,10 @@ Start a new timer with optional name
 
 * `timer.log([message])`: Log elapsed time with optional message.
 
+* `timer.debug([message])`: As log, but print with [debug](https://github.com/visionmedia/debug) (on the `time` target)
+
 * `timer.ns()`: get elapsed time in nanoseconds.
+
 
 ### const bench = require('benchutils/nanobench')
 
