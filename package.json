@@ -1,6 +1,6 @@
 {
   "name": "nanobench-utils",
-  "version": "0.2",
+  "version": "1.0",
   "description": "Utilities for benchmarks and timers",
   "main": "index.js",
   "scripts": {
