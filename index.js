@@ -2,13 +2,15 @@ const hrtime = require('browser-process-hrtime')
 const prettyBytes = require('pretty-bytes')
 const prettyTime = require('pretty-hrtime')
 const debug = require('debug')('time')
+const memory = require('./memory')
 
 module.exports = {
   clock,
   prettyBytes,
   prettyTime,
   prettyThroughput,
-  hrtime
+  hrtime,
+  memory
 }
 
 function clock (name) {

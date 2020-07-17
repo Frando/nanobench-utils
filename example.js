@@ -14,3 +14,13 @@ bench('bar', b => {
   b.throughput(1024 * 1024 * 10)
   setTimeout(() => b.end(), 700)
 })
+
+bench('many', b => {
+  b.start()
+  const res = []
+  for (let i = 0; i < 100000; i++) {
+    res.push(i * i)
+  }
+  b.memory()
+  b.end()
+})

@@ -10,7 +10,7 @@ npm install nanobench-utils
 
 
 ``` 
-const { clock } = require('nanobench-utils')
+const { clock, memory } = require('nanobench-utils')
 ```
 
 ### const timer = clock([name])
@@ -25,6 +25,11 @@ Start a new timer with optional name
 
 * `timer.ns()`: get elapsed time in nanoseconds.
 
+### const memory = memory(gc = true)
+
+Measure memory usage. If `node` is run with `--expose-gc`, the garbage collector is run before logging memory. This can be disabled with `gc = false`.
+
+* `memory.log([message])`: Log current memory usage and diff to last measurement, with optional message.
 
 ### const bench = require('benchutils/nanobench')
 
@@ -34,4 +39,6 @@ Usage as with nanobench. Additional methods on the `b` benchmark object provided
 
 * `b.time(name)`: Start a new timer `name`
 
-* `b.timeLog(name, message)`: Log the current time of timer `name`
+* `b.timeLog(name, [message])`: Log the current time of timer `name`
+
+* `b.memory([message])`: Log the current memory usage. The first diff is towards the start of the benchmark.

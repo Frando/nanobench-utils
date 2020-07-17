@@ -6,11 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["benchmark", "nanobench", "timer"],
+  "keywords": [
+    "benchmark",
+    "nanobench",
+    "timer"
+  ],
   "author": "Franz Heinzmann (Frando)",
   "license": "GPL-3.0",
   "dependencies": {
     "browser-process-hrtime": "^1.0.0",
+    "debug": "^4.1.1",
     "nanobench": "^2.1.1",
     "pretty-bytes": "^5.3.0",
     "pretty-hrtime": "^1.0.3"

@@ -2,7 +2,7 @@ const nanobench = require('nanobench')
 
 const WRAPPED = Symbol('nanobench-plus')
 
-const { clock, prettyThroughput } = require('.')
+const { clock, memory, prettyThroughput } = require('.')
 
 function bench (name, fn, only) {
   nanobench(name, wrapNanobench(fn), only)
@@ -23,10 +23,12 @@ function wrapNanobench (fn) {
   return function (b) {
     let tp = null
     const timers = {}
+    const mem = memory()
 
     const start = b.start
     b.start = function () {
       timers._start = clock()
+      mem.update()
       start()
     }
 
@@ -48,6 +50,10 @@ function wrapNanobench (fn) {
 
     b.throughput = function (bytes) {
       tp = bytes
+    }
+
+    b.memory = function (message) {
+      mem.log()
     }
 
     const end = b.end
